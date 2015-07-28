@@ -20,7 +20,7 @@ $label->draw;
 $cui->set_binding(sub {exit}, "q");
 
 my $supp = $cui->dialog(
-    -message => "Do you want to a supplement",
+    -message => "補完機能を強化したい？",
     -buttons => ['yes','no'],
     -values  => [1,0],
     -title   => 'Question',
@@ -62,18 +62,13 @@ my $gist = $cui->dialog(
 if ($gist) {
     $plugin_name{"Shougo/neocomplete"} = "https://github.com/Shougo/neocomplete.vim";
 }
-my $win = $cui->add('window_result', 'Window');
 
-my $listbox = $win->add(
-    'mylistbox', 'Listbox',
-    -values    => [1, 2, 3],
-    -labels    => { 1 => %plugin_name,
-                    2 => 'Two',
-                    3 => 'Three' },
-    -radio     => 1,
+my $exit = $cui->dialog(
+    -message =>  "Plugin suit to you is\n" . $plugin_name{"Shougo/neocomplete"},
+    -values  => [1],
+    -title   => 'Question',
 );
 
-    $listbox->focus();
-say %plugin_name;
+
 
 $cui->mainloop();
