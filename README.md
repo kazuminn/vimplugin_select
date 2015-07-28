@@ -1,5 +1,6 @@
 #about
-おすすめVimPluginを進める端末アプリ
+ダイアログ質問形式で
+おすすめVimPluginをお勧めする端末アプリ
 
 ![画像](http://ie.u-ryukyu.ac.jp/~e145702/vim_select2)
 
