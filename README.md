@@ -2,7 +2,7 @@
 ダイアログ質問形式で
 おすすめVimPluginをお勧めする端末アプリ
 
-![画像](http://ie.u-ryukyu.ac.jp/~e145702/vim_select3)
+![画像](http://ie.u-ryukyu.ac.jp/~e145702/vim_select4)
 
 #使い方
 <pre>
