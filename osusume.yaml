@@ -1,0 +1,10 @@
+---
+gist:
+- Gistを楽したい
+- mattn/gist-vim
+- https://github.com/mattn/gist-vim
+neocomplete:
+- 補完力を強化したい？
+- Shougo/neocomplete
+- https://github.com/Shougo/neocomplete.vim
+

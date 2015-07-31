@@ -1,11 +1,14 @@
 #!/usr/bin/perl -w
 
 use strict;
+use YAML::Syck ();
 use Curses::UI;
-use 5.01;
+use Data::Dumper;
+use utf8;
+use 5.010;
 
 my $cui = new Curses::UI( -color_support => 1 );
-my %plugin_name;
+my %you_match_plugin_name;
 
 my $win = $cui->add('window_id', 'Window');
 
@@ -14,59 +17,45 @@ my $label = $win->add(
     -text      => 'Exit: q',
     -bold      => 1,
 );
-
 $label->draw;
-
 $cui->set_binding(sub {exit}, "q");
 
-my $supp = $cui->dialog(
-    -message => "補完機能を強化したい？",
-    -buttons => ['yes','no'],
-    -values  => [1,0],
-    -title   => 'Question',
-);
+my $filename = "osusume.yaml";
+open(IN, $filename) or die("cannnot open file.");
+read(IN, my $input , (-s $filename));
+close(IN);
 
-if ($supp) {
-    $plugin_name{"Shougo/neocomplete"} = "https://github.com/Shougo/neocomplete.vim";
+
+my %ydoc = %{YAML::Syck::Load($input)};
+
+foreach my $data(keys(%ydoc)){
+    my $message = $ydoc{$data}[0];
+    my $neobundle_name = $ydoc{$data}[1];
+    my $url = $ydoc{$data}[2];
+
+    my $template = $cui->dialog(
+        -message => $message,
+        -buttons => ['yes','no'],
+        -values  => [1,0],
+        -title   => 'Question',
+    );
+
+    if ($template) {
+        $you_match_plugin_name{$neobundle_name} = $url;
+    }
 }
 
-my $twi = $cui->dialog(
-    -message => "Do you want to Twitter in Vim",
-    -buttons => ['yes','no'],
-    -values  => [1,0],
-    -title   => 'Question',
-);
 
-if ($twi) {
-    $plugin_name{"Shougo/neocomplete"} = "https://github.com/Shougo/neocomplete.vim";
-}
 
-my $template = $cui->dialog(
-    -message => "You want to ease templete?",
-    -buttons => ['yes','no'],
-    -values  => [1,0],
-    -title   => 'Question',
-);
+my @plugin_name_value = values(%you_match_plugin_name);
+my $text;
 
-if ($template) {
-    $plugin_name{"Shougo/neocomplete"} = "https://github.com/Shougo/neocomplete.vim";
-}
-
-my $gist = $cui->dialog(
-    -message => "Do You want to use gist in vim?",
-    -buttons => ['yes','no'],
-    -values  => [1,0],
-    -title   => 'Question',
-);
-
-if ($gist) {
-    $plugin_name{"Shougo/neocomplete"} = "https://github.com/Shougo/neocomplete.vim";
-}
+$text .= "\n$_" for (@plugin_name_value);
 
 my $exit = $cui->dialog(
-    -message =>  "Plugin suit to you is\n" . $plugin_name{"Shougo/neocomplete"},
+    -message =>  "あなたにぴったりのpluginは\n" . $text,
     -values  => [1],
-    -title   => 'Question',
+    -title   => '結果',
 );
 
 
