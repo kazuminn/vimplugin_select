@@ -1,6 +1,7 @@
 #about
 This is a terminal app which advance suits of Vim-Plugin to you.
 Start and select yes or no and teach suits of Vim-Plugin to you.
+Probably for Mac OS.
 
 conputer lunguage:
 * perl 5.1
