@@ -16,9 +16,11 @@ Module:
 #Installation
 <pre>
 cd
-git clone https://github.com/kazuminn/vimplugin\_select.git
-sudo cpan Curses::UI
-sudo cpan YAML::Syck
+$ git clone https://github.com/kazuminn/vimplugin\_select.git
+
+$ sudo cpan Curses::UI
+
+$ sudo cpan YAML::Syck
 </pre>
 
 #expantion yaml
