@@ -53,9 +53,9 @@ my $text;
 $text .= "\n$_" for (@plugin_name_value);
 
 my $exit = $cui->dialog(
-    -message =>  "あなたにぴったりのpluginは\n" . $text,
+    -message =>  "Suits of Vim-Plugin to you is\n" . $text,
     -values  => [1],
-    -title   => '結果',
+    -title   => 'Result',
 );
 
 
