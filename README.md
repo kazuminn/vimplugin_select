@@ -15,7 +15,8 @@ Module:
 
 #Installation
 <pre>
-cd
+$ cd
+
 $ git clone https://github.com/kazuminn/vimplugin\_select.git
 
 $ sudo cpan Curses::UI
