@@ -1,10 +1,10 @@
 ---
 gist:
-- Gistを楽したい
+- Do you want to easy Gist in Vim ?. For example. maybe post to gist quick .
 - mattn/gist-vim
 - https://github.com/mattn/gist-vim
 neocomplete:
-- 補完力を強化したい？
+- Do you want to strengthen the character complementary force? 
 - Shougo/neocomplete
 - https://github.com/Shougo/neocomplete.vim
 
