@@ -10,7 +10,7 @@ Module:
 * Curses::UI
 
 # View
-![画像](http://ie.u-ryukyu.ac.jp/~e145702/vim_select4)
+![image](http://ie.u-ryukyu.ac.jp/~e145702/finishi)
 
 #Installation
 <pre>
